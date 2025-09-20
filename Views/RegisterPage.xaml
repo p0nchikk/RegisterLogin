@@ -23,17 +23,17 @@
                     <!--  USERNAME  -->
                     <Entry
                         x:Name="EntryUserName"
-                        Placeholder="Your Username"
+                        Placeholder="Username"
                         TextColor="Black" />
                     <Label
                         x:Name="LblErrorName"
                         FontSize="10"
                         Text=""
                         TextColor="Red" />
-                    <!--  USERNAME  -->
+                    <!--  EMAIL  -->
                     <Entry
                         x:Name="EntryUserEmail"
-                        Placeholder="Your Email"
+                        Placeholder="Email"
                         TextColor="Black" />
                     <Label
                         x:Name="LblErrorUserEmail"
@@ -45,7 +45,7 @@
                         <Entry
                             x:Name="EntryPassword"
                             IsPassword="True"
-                            Placeholder="Your Password"
+                            Placeholder="Password"
                             TextColor="Black" />
                         <Button
                             Grid.Column="1"
@@ -57,7 +57,24 @@
                         FontSize="10"
                         Text=""
                         TextColor="Red" />
-
+                    <!--  PASSWORD VERIFYCATION  -->
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Entry
+                            x:Name="EntryVerifyPassword"
+                            IsPassword="True"
+                            Placeholder="Verify Password"
+                            TextColor="Black" />
+                        <Button
+                            Grid.Column="1"
+                            Clicked="Button_TogglePassword_Clicked"
+                            Text="Show/Hide" />
+                    </Grid>
+                    <Label
+                        x:Name="LblErrorVerifyPassword"
+                        FontSize="10"
+                        Text=""
+                        TextColor="Red" />
+                    <!--  TEMPRORARY MES  -->
                     <Label
                         x:Name="LblMessage"
                         FontSize="15"

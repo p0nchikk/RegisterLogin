@@ -45,6 +45,11 @@ public partial class RegisterPage : ContentPage
             isValid = false;
         }
 
+        if (EntryPassword.Text != EntryVerifyPassword.Text)
+        {
+            isValid = false;
+        }
+
         if ( isValid )
         {
             LblMessage.Text = "Registration's done successfully!";

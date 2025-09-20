@@ -1,12 +1,87 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RegisterLogin.Views.LoginPage"
-             Title="LoginPage">
+<ContentPage
+    x:Class="RegisterLogin.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="LoginPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <!--<Grid
+            ColumnSpacing="10"
+            RowDefinitions="auto,*,auto"
+            RowSpacing="10">
+            --><!--  HEADER  --><!--
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                BackgroundColor="Red"
+                HorizontalOptions="Center"
+                Text="Welcome to Login Page"
+                VerticalOptions="Center" />
+            --><!--  CONTENT  --><!--
+            <ScrollView Grid.Row="1" BackgroundColor="White">
+                <VerticalStackLayout Padding="20" Spacing="15">
+                    --><!--  USERNAME  --><!--
+                    <Entry
+                        x:Name="EntryUserName"
+                        Placeholder="Username"
+                        TextColor="Black" />
+                    <Label
+                        x:Name="LblErrorName"
+                        FontSize="10"
+                        Text=""
+                        TextColor="Red" />
+                    --><!--  PASSWORD  --><!--
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Entry
+                            x:Name="EntryPassword"
+                            IsPassword="True"
+                            Placeholder="Password"
+                            TextColor="Black" />
+                        <Button
+                            Grid.Column="1"
+                            Clicked="Button_TogglePassword_Clicked"
+                            Text="Show/Hide" />
+                    </Grid>
+                    <Label
+                        x:Name="LblErrorPassword"
+                        FontSize="10"
+                        Text=""
+                        TextColor="Red" />
+                    --><!--  TEMPRORARY MES  --><!--
+                    <Label
+                        x:Name="LblMessage"
+                        FontSize="15"
+                        Text=""
+                        TextColor="Red" />
+                </VerticalStackLayout>
+            </ScrollView>
+            --><!--  FOOTER  --><!--
+            <Grid
+                x:Name="Footer"
+                Grid.Row="2"
+                BackgroundColor="Yellow"
+                ColumnDefinitions="*,*"
+                RowDefinitions="*,*">
+                <Button
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="Fill"
+                    Text="Go to Login"
+                    VerticalOptions="Center" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalOptions="Fill"
+                    Text="Reset"
+                    VerticalOptions="Center" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Clicked="ButtonRegister_Clicked"
+                    HorizontalOptions="Fill"
+                    Text="Register"
+                    VerticalOptions="Center" />
+            </Grid>
+        </Grid>-->
     </VerticalStackLayout>
 </ContentPage>
