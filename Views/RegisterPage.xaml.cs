@@ -6,13 +6,14 @@ public partial class RegisterPage : ContentPage
     public RegisterPage()
     {
         InitializeComponent();
-        EntryFullName.Text = "";
+        EntryUserName.Text = "";
+        EntryUserEmail.Text = "";
         EntryPassword.Text = "";
     }
 
     private void ResetErrors()
     {
-        LblErrorFullName.Text = "";
+        LblErrorName.Text = "";
         LblErrorPassword.Text = "";
     }
     private void ButtonRegister_Clicked(object sender, EventArgs e)
@@ -20,18 +21,27 @@ public partial class RegisterPage : ContentPage
         ResetErrors();
         isValid = true;
 
-        if (EntryFullName.Text.Length < 5)
+        if (EntryUserName.Text.Length < 5)
         {
-            LblErrorFullName.Text = "Too short must be above 5 chars";
+            LblErrorName.Text = "Too short must be above 5 chars";
             isValid = false;
         }
 
-        string pattern = @"^(?=.*[A-Z])(?=.*@).{8,}$";
-        bool isPasswordOk = Regex.IsMatch(EntryPassword.Text, pattern);
+        string passPattern = @"^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?"":{}|<>])[A-Za-z\d!@#$%^&*(),.?"":{}|<>]{8,}$";
+        bool isPasswordOk = Regex.IsMatch(EntryPassword.Text, passPattern);
+
+        string emailPattern = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
+        bool isEmailOk = Regex.IsMatch(EntryUserEmail.Text, emailPattern);
 
         if (!isPasswordOk)
         {
-            LblErrorPassword.Text = "Password must be at least 8 chars, contain an uppercase letter and a special char (@)";
+            LblErrorPassword.Text = "Password must be at least 8 chars, contain an uppercase letter and a special char";
+            isValid = false;
+        }
+
+        if (!isEmailOk)
+        {
+            LblErrorUserEmail.Text = "Valid email address";
             isValid = false;
         }
 

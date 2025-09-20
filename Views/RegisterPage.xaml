@@ -20,16 +20,27 @@
             <!--  CONTENT  -->
             <ScrollView Grid.Row="1" BackgroundColor="White">
                 <VerticalStackLayout Padding="20" Spacing="15">
+                    <!--  USERNAME  -->
                     <Entry
-                        x:Name="EntryFullName"
-                        Placeholder="Your Full Name"
+                        x:Name="EntryUserName"
+                        Placeholder="Your Username"
                         TextColor="Black" />
                     <Label
-                        x:Name="LblErrorFullName"
+                        x:Name="LblErrorName"
                         FontSize="10"
                         Text=""
                         TextColor="Red" />
-
+                    <!--  USERNAME  -->
+                    <Entry
+                        x:Name="EntryUserEmail"
+                        Placeholder="Your Email"
+                        TextColor="Black" />
+                    <Label
+                        x:Name="LblErrorUserEmail"
+                        FontSize="10"
+                        Text=""
+                        TextColor="Red" />
+                    <!--  PASSWORD  -->
                     <Grid ColumnDefinitions="*,Auto">
                         <Entry
                             x:Name="EntryPassword"
@@ -46,6 +57,7 @@
                         FontSize="10"
                         Text=""
                         TextColor="Red" />
+
                     <Label
                         x:Name="LblMessage"
                         FontSize="15"
