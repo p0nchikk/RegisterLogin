@@ -5,11 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="LoginPage">
     <VerticalStackLayout>
-        <!--<Grid
+        <Grid
             ColumnSpacing="10"
             RowDefinitions="auto,*,auto"
             RowSpacing="10">
-            --><!--  HEADER  --><!--
             <Label
                 Grid.Row="0"
                 Grid.Column="0"
@@ -17,10 +16,10 @@
                 HorizontalOptions="Center"
                 Text="Welcome to Login Page"
                 VerticalOptions="Center" />
-            --><!--  CONTENT  --><!--
+
             <ScrollView Grid.Row="1" BackgroundColor="White">
                 <VerticalStackLayout Padding="20" Spacing="15">
-                    --><!--  USERNAME  --><!--
+
                     <Entry
                         x:Name="EntryUserName"
                         Placeholder="Username"
@@ -30,7 +29,6 @@
                         FontSize="10"
                         Text=""
                         TextColor="Red" />
-                    --><!--  PASSWORD  --><!--
                     <Grid ColumnDefinitions="*,Auto">
                         <Entry
                             x:Name="EntryPassword"
@@ -47,7 +45,6 @@
                         FontSize="10"
                         Text=""
                         TextColor="Red" />
-                    --><!--  TEMPRORARY MES  --><!--
                     <Label
                         x:Name="LblMessage"
                         FontSize="15"
@@ -55,7 +52,6 @@
                         TextColor="Red" />
                 </VerticalStackLayout>
             </ScrollView>
-            --><!--  FOOTER  --><!--
             <Grid
                 x:Name="Footer"
                 Grid.Row="2"
@@ -65,23 +61,24 @@
                 <Button
                     Grid.Row="0"
                     Grid.ColumnSpan="2"
+                    Clicked="ButtonGoToRegister_Clicked"
                     HorizontalOptions="Fill"
-                    Text="Go to Login"
+                    Text="Go to Register"
                     VerticalOptions="Center" />
                 <Button
                     Grid.Row="1"
                     Grid.Column="0"
+                    Clicked="ButtonReset_Clicked"
                     HorizontalOptions="Fill"
                     Text="Reset"
                     VerticalOptions="Center" />
                 <Button
                     Grid.Row="1"
                     Grid.Column="1"
-                    Clicked="ButtonRegister_Clicked"
                     HorizontalOptions="Fill"
-                    Text="Register"
+                    Text="Login"
                     VerticalOptions="Center" />
             </Grid>
-        </Grid>-->
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

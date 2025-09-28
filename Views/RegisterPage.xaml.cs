@@ -1,4 +1,6 @@
 namespace RegisterLogin.Views;
+
+using RegisterLogin.Models;
 using System.Text.RegularExpressions;
 public partial class RegisterPage : ContentPage
 {
@@ -11,14 +13,13 @@ public partial class RegisterPage : ContentPage
         EntryPassword.Text = "";
     }
 
-    private void ResetErrors()
+    private void ButtonReset_Clicked(object sender, EventArgs e)
     {
-        LblErrorName.Text = "";
-        LblErrorPassword.Text = "";
+        EntryUserName.Text = "";
+        EntryPassword.Text = "";
     }
     private void ButtonRegister_Clicked(object sender, EventArgs e)
     {
-        ResetErrors();
         isValid = true;
 
         if (EntryUserName.Text.Length < 5)
@@ -27,23 +28,23 @@ public partial class RegisterPage : ContentPage
             isValid = false;
         }
 
-        string passPattern = @"^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?"":{}|<>])[A-Za-z\d!@#$%^&*(),.?"":{}|<>]{8,}$";
-        bool isPasswordOk = Regex.IsMatch(EntryPassword.Text, passPattern);
+        //string passPattern = @"^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?"":{}|<>])[A-Za-z\d!@#$%^&*(),.?"":{}|<>]{8,}$";
+        //bool isPasswordOk = Regex.IsMatch(EntryPassword.Text, passPattern);
 
-        string emailPattern = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
-        bool isEmailOk = Regex.IsMatch(EntryUserEmail.Text, emailPattern);
+        //string emailPattern = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
+        //bool isEmailOk = Regex.IsMatch(EntryUserEmail.Text, emailPattern);
 
-        if (!isPasswordOk)
-        {
-            LblErrorPassword.Text = "Password must be at least 8 chars, contain an uppercase letter and a special char";
-            isValid = false;
-        }
+        //if (!isPasswordOk)
+        //{
+        //    LblErrorPassword.Text = "Password must be at least 8 chars, contain an uppercase letter and a special char";
+        //    isValid = false;
+        //}
 
-        if (!isEmailOk)
-        {
-            LblErrorUserEmail.Text = "Valid email address";
-            isValid = false;
-        }
+        //if (!isEmailOk)
+        //{
+        //    LblErrorUserEmail.Text = "Valid email address";
+        //    isValid = false;
+        //}
 
         if (EntryPassword.Text != EntryVerifyPassword.Text)
         {
@@ -52,7 +53,9 @@ public partial class RegisterPage : ContentPage
 
         if ( isValid )
         {
-            LblMessage.Text = "Registration's done successfully!";
+            User user = new User() { UserName = EntryUserName.Text, Password = EntryPassword.Text };
+            LocalDataService.GetInstance().AddUser(user);
+            ButtonGoToLogin_Clicked(sender, EventArgs.Empty);
         }
     }
     private void Button_TogglePassword_Clicked(object sender, EventArgs e)
@@ -60,4 +63,8 @@ public partial class RegisterPage : ContentPage
         EntryPassword.IsPassword = !EntryPassword.IsPassword;
     }
 
+    private async void ButtonGoToLogin_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new LoginPage());
+    }
 }

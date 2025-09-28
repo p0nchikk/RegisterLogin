@@ -92,12 +92,14 @@
                 <Button
                     Grid.Row="0"
                     Grid.ColumnSpan="2"
+                    Clicked="ButtonGoToLogin_Clicked"
                     HorizontalOptions="Fill"
                     Text="Go to Login"
                     VerticalOptions="Center" />
                 <Button
                     Grid.Row="1"
                     Grid.Column="0"
+                    Clicked="ButtonReset_Clicked"
                     HorizontalOptions="Fill"
                     Text="Reset"
                     VerticalOptions="Center" />
