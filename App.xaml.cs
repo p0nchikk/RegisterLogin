@@ -8,7 +8,7 @@ namespace RegisterLogin
         {
             InitializeComponent();
 
-            MainPage = new RegisterPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

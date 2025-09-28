@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="RegisterLogin.Views.ScanItemPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ScanItemPage">
+    <VerticalStackLayout>
+        <!--<Label
+            HorizontalOptions="Center"
+            Text="Add new product!"
+            VerticalOptions="Center" />
+        <Grid>
+            --><!--  Barcode scanner view  --><!--
+            <zxing:CameraBarcodeReaderView
+                x:Name="cameraBarcodeReaderView"
+                BarcodeDetected="CameraBarcodeReaderView_BarcodeDetected"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+
+            --><!--  Overlay button  --><!--
+            <Button
+                BackgroundColor="Black"
+                HorizontalOptions="Center"
+                Text="Back"
+                TextColor="White"
+                VerticalOptions="End" />
+        </Grid>-->
+    </VerticalStackLayout>
+</ContentPage>
