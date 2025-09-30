@@ -16,13 +16,18 @@ namespace RegisterLogin
             if ( instance == null)
             {
                 instance = new LocalDataService();
+                instance.user = new User();
             }
             return instance;
-        }
+        }    
         public bool AddUser(User user)
         {
             this.user = user;
             return true;
+        }
+        public User GetUser()
+        {
+            return this.user;
         }
         public bool IsUserRegistered(string userName, string password)
         {
