@@ -53,7 +53,7 @@ public partial class RegisterPage : ContentPage
 
         if ( isValid )
         {
-            User user = new User() { UserName = EntryUserName.Text, Password = EntryPassword.Text };
+            User user = new User() { UserName = EntryUserName.Text, Password = EntryPassword.Text, Email = EntryUserEmail.Text };
             LocalDataService.GetInstance().AddUser(user);
             ButtonGoToLogin_Clicked(sender, EventArgs.Empty);
         }

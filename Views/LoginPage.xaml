@@ -6,20 +6,20 @@
     Title="LoginPage">
     <VerticalStackLayout>
         <Grid
+            BackgroundColor="White"
+            Padding="20"
             ColumnSpacing="10"
             RowDefinitions="auto,*,auto"
             RowSpacing="10">
             <Label
                 Grid.Row="0"
                 Grid.Column="0"
-                BackgroundColor="Red"
-                HorizontalOptions="Center"
+                Style="{StaticResource HeaderLabelStyle}"
                 Text="Welcome to Login Page"
                 VerticalOptions="Center" />
 
             <ScrollView Grid.Row="1" BackgroundColor="White">
-                <VerticalStackLayout Padding="20" Spacing="15">
-
+                <VerticalStackLayout Margin="20" Spacing="15">
                     <Entry
                         x:Name="EntryUserName"
                         Placeholder="Username"
@@ -55,30 +55,36 @@
             <Grid
                 x:Name="Footer"
                 Grid.Row="2"
-                BackgroundColor="Yellow"
                 ColumnDefinitions="*,*"
                 RowDefinitions="*,*">
                 <Button
-                    Grid.Row="0"
-                    Grid.ColumnSpan="2"
-                    Clicked="ButtonGoToRegister_Clicked"
-                    HorizontalOptions="Fill"
-                    Text="Go to Register"
-                    VerticalOptions="Center" />
-                <Button
-                    Grid.Row="1"
                     Grid.Column="0"
                     Clicked="ButtonReset_Clicked"
                     HorizontalOptions="Fill"
                     Text="Reset"
                     VerticalOptions="Center" />
                 <Button
-                    Grid.Row="1"
                     Grid.Column="1"
+                    Clicked="ButtonLogin_Clicked"
                     HorizontalOptions="Fill"
                     Text="Login"
                     VerticalOptions="Center" />
+
+                <Label Grid.Row="1" Grid.ColumnSpan="2" Padding="0,12,0,0" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="14">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Don't have an account?   " TextColor="Black"/>
+                            <Span Text="Sign Up" TextDecorations="Underline" TextColor="Purple">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ButtonGoToRegister_Clicked" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
             </Grid>
         </Grid>
+
     </VerticalStackLayout>
 </ContentPage>
